@@ -1,3 +1,3 @@
 # AlconSchoolCourses
 
-In this repository save all work completed in course on Alcon School
+In this repository saved all work completed in course on Alcon School
