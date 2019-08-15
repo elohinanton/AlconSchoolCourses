@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <meta charset="UTF-8">
+
+        <title>homeWork</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700&display=swap" rel="stylesheet">
+        
+        <style>
+            *{
+                font-family: 'Comfortaa', cursive;
+            }
+        
+            html, body{
+                height:100%;
+                width: 100%;
+                margin: 0;
+            }
+        
+            h2{
+                color: #000000f0;
+            }
+        
+            h3{
+                color: #000000e0;
+            }
+        
+            p{
+                color: #000000d0;
+            }
+        
+            .resumePayload{
+                display: grid;
+                grid-auto-flow: column;
+                grid-template-columns: 300px 1fr ;
+                grid-template-rows: 35px minmax(250px,100%) minmax(25px, 45px) minmax(25px, 45px) minmax(25px, 45px);
+            }
+        
+            .resumePhoto{
+                grid-row-start: 1;
+                grid-column-start: 1;
+                grid-row-end: span 2;
+                grid-column-end: span 1;
+                height:100%;
+                margin-right: 25px;
+            }
+        
+            .resumePhoto div{
+                height:100%;
+                width: calc(100% - 20px);
+                
+                margin: 20px;
+                border-radius: 4px;
+            }
+        
+            .resumePhoto div img{
+                width: calc(100% - 20px);
+                margin: 20px;
+                border-radius: 4px;
+                box-shadow: 4px 4px 14px 8px #00000035;
+                
+                margin-top:5%;
+            }
+        
+            .sublitles{
+                text-align: end;
+            }
+        
+            .sublitles h3{
+                margin-right: 7px;
+                margin-bottom: 0px;
+            }
+        
+            hr{
+                margin-right: 0px;
+            }
+        
+            .resumePayload > div:nth-of-type(2) hr {
+                width: 82px;
+            }
+        
+            .resumePayload > div:nth-of-type(3) hr {
+                width: 129px;
+            }
+        
+            .resumePayload > div:nth-of-type(4) hr {
+                width: 250px;
+            }
+        
+            .resumePayload > div:nth-of-type(5) h2 {
+                margin-bottom: 0px;
+                margin-left: 25px;
+                
+            }
+        
+            .resumePayload > div:nth-of-type(6) p{
+                color: #00000098;
+                
+            }
+        
+            .textInAboutMe{
+                margin-top:6px;
+                margin-bottom: 0px;
+            }
+        
+            .textInAboutMe p{
+                margin-bottom:0px;
+                margin-left: 5px;
+                width: 94%;
+            }
+        
+            .textInAboutMe hr{
+                margin-left: 6px;
+                margin-right: auto;
+                width: 96%;
+            }
+        
+            .textInAboutMe>.buttonForSocialNetwork:nth-of-type(1){
+                margin-left: 1rem;
+            }
+
+            .buttonForSocialNetwork{
+                display: inline-flex;
+                align-items: center;
+                border: 1px solid #505050b0;
+                border-radius:4px;
+                text-decoration:none;
+                padding: 2px;
+                margin-top: 4px;
+                height: 22px;
+                background-color: #00000014;
+            }
+
+            .buttonForSocialNetwork > img{
+                height:20px;
+            }
+            .buttonForSocialNetwork > h4{
+                margin: 7px;
+                color: black;
+            }
+
+            .menuButton{
+                position:absolute;
+                right:0;
+                margin: 0 10px;
+            }
+        
+            .menuButton>img:nth-of-type(1){
+                height:20px;
+            }
+        
+            .menu{
+                position:absolute;
+                right:0;
+                margin: 23px 11px;
+                background-color: #00000048;
+                width:230px;
+                border-radius:4px;
+                border-top-right-radius:0px;
+                display: none;
+            }
+        
+            .menu__cell{
+                height: calc(100% - 8px);
+                width: calc(100% - 8px);
+                background-color:white;
+                margin:4px;
+                border-radius:4px;
+                vertical-align: middle;
+                line-height: 40px;
+                text-align: center;
+
+            }
+        
+            .menu__cell>h4{
+                text-align:center;
+                margin-top: 6px;
+                display: inline;
+                text-align: center;
+            }
+        
+            .menu__cell>img{
+                margin: 10px 6px 0 0;
+                height:20px;
+            }
+        
+            .modal{
+                position: fixed;
+                margin: 0;
+                height: 100%;
+                width: 100%;
+
+                display: none;
+            }
+        
+            .modal input{
+                border-radius: 4px;
+                margin-top: 0.75em;
+                width: calc(100% - 8em);
+            }
+
+            #inputMessage{
+                white-space: normal;
+                height: 10em;
+            }
+            
+            .modal button{
+                margin-top: 1.5em;
+                margin-bottom: 1.5em;
+            }
+
+            .modal__substrate{
+                
+                background-color: #141414af;
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                top: 0;
+            }
+        
+            .modal__payload{
+                position: fixed;
+                border; 3px solid white;
+                margin-top: 50vh;
+                margin-left: 50vw;
+
+                transform: translate(-50%, -50%); 
+                
+                background-color: #909090f0;
+                border-radius:6px;
+                text-align:center;
+
+            } 
+
+            .modal__payload>div{
+                height: 100px;
+                width: 130px;
+                background-color: brown;
+            }
+        
+            .modal__payload h3{
+                margin: 1rem 2rem 0.5rem 2rem;
+                color:white;
+            }
+
+        </style>
+
+    </head>
+    
+    <body>
+        <div class="modal" id="modal">
+            
+            <div class="modal__payload"> 
+                <h3>Оставь информацию о себе</h3> 
+                <form action="">
+                    <input type="text" placeholder="Имя" id="inputName" required> <br>
+                    <input type="text" placeholder="Mail" id="inputMail" required> <br>
+                    <input type="text" placeholder="Сообщение" id="inputMessage" required> <br>
+                    <input type="submit" style="margin-bottom:1em; width:calc(100% - 10em)"  value="Отправить" onclick="feedback()"> 
+                </form>                
+            </div>
+
+            <div class="modal__substrate" onclick="clickInNotPayloadArea()"></div>
+        </div> 
+
+        <div class="menuButton" onclick="menuFunction()">
+            <img src="https://image.flaticon.com/icons/svg/128/128453.svg">
+        </div>
+
+        <div class="menu" id="menu">
+            <div class="menu__cell" onclick="openFeedback()"><img src="https://image.flaticon.com/icons/svg/813/813418.svg"><h4>Обратная связь</h4></div>
+        </div>
+    
+
+        <div class="resumePayload" onclick="closeMenuButton()">
+            <div class="resumePhoto">
+                <div>
+                    <img src="https://scontent-arn2-2.cdninstagram.com/vp/faca071110b4c8c831af25a600548017/5DEE640C/t51.2885-15/e35/61404217_2197577250371126_6314853883763952423_n.jpg?_nc_ht=scontent-arn2-2.cdninstagram.com">
+                </div>
+            </div>
+            <div class="sublitles"><h3>О себе</h3><hr></div>
+            <div class="sublitles"><h3>Цель курса</h3><hr></div>
+            <div class="sublitles"><h3>Страницы в соцсетях</h3><hr></div>
+            <div><h2>Антон Елохин</h2></div>
+            <div class="textInAboutMe">
+                <p>2-3 месяца назад начал изучать фронтенд, на текущий момент есть небольшое понимание о VUE.js, препроцессорах SASS и PUG, о работе с GIT, об HTML и CSS (в том числе CSS GRID, CSS Flexbox).</p>
+                <p>Есть небольшое понимание об IoT (Благодаря IoT я немного познакомился с языками "С" и "С++"). </p>
+                <p>Окончил радиотехнический техникум по специальности "Ремонт и обслуживание радиоэлектронной аппаратуры".</p>
+            </div>
+            <div class="textInAboutMe"><p>22года, стажер в Napoleon IT</p><hr></div>
+            <div class="textInAboutMe"><p>Освоить основы фронтенд-разработки</p><hr></div>
+            <div class="textInAboutMe">
+                <a class="buttonForSocialNetwork" href="https://vk.com/anton_elohin">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/VK.com-logo.svg/768px-VK.com-logo.svg.png"></img>
+                    <h4>vk.com/anton_elohin</h4>
+                </a>        
+                <a class="buttonForSocialNetwork" href="https://www.instagram.com/anton_elohin/">
+                    <img src="http://pngimg.com/uploads/instagram/instagram_PNG9.png"></img>
+                    <h4>anton_elohin</h4>
+                </a> <hr>
+            </div>
+        </div>
+    
+        <script>
+            var showMenu = false;
+            var openFeedbackVar = false;
+
+            function menuFunction(){        /* menu button */
+
+                console.log('menu button tab. Var (showMenu) = ' + showMenu);
+
+                if (showMenu == false) {
+                    menu.style.display = "initial";
+
+                    setTimeout("menu.style.display = 'none'", 7000);
+                    showMenu = true;
+                    
+                    
+                } else {
+                    menu.style.display = "none";
+                } 
+                showMenu = !showMenu
+                
+            }
+
+            function openFeedback() {       /* button "open feedback" */
+                
+                console.log('feedback tab. Var (openFeedbackVar) = ' + openFeedbackVar);
+
+                if (openFeedbackVar == false){
+                    modal.style.display = "initial";
+                    menu.style.display = "none";
+                } else {
+                    menu.style.display = "none";
+                    modal.style.display = "none";
+                }
+                openFeedbackVar = !openFeedbackVar;
+                showMenu = false; 
+            }
+
+            /* modal window */
+
+                function feedback (){       /* function form-input text */
+                    var feedbackName = document.getElementById('inputName').value;
+                    var feedbackMail = document.getElementById('inputMail').value;
+                    var feedbackMessage = document.getElementById('inputMessage').value;
+                    
+                    console.log(feedbackName);
+                    console.log(feedbackMail);
+                    console.log(feedbackMessage);
+                    
+                    if (feedbackName && feedbackMail && feedbackMessage != ''){
+                        alert('Спасибо, ' + feedbackName + " ("  + feedbackMail + "). Я обязательно передам \" " + feedbackMessage + '\".' );
+                        modal.style.display = 'none';
+
+                    } else {
+                        alert('проверьте форму, Вы что-то пропустили');
+                    }
+                }
+
+                function clickInNotPayloadArea(){       /* tab not form-input text */
+                    console.log('click not payload area');
+                    modal.style.display = 'none';
+                }
+
+            function closeMenuButton(){     /* Just closes the menu. just a crutch */
+                menu.style.display = "none";
+            }
+
+        </script>
+    </body>
+    
+</html>

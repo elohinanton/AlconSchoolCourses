@@ -1,0 +1,21 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 id="greeting">Hello, world</h1>
+        <hr/>
+        <input type="button" onclick="replaceGreeting()" value="replace"/>
+        <script>
+            function replaceGreeting() {
+                var greeting = document.getElementById('greeting')
+                
+                setTimeout(function(){
+                       greeting.innerHTML = 'Helo, Vasya'
+                       
+                   }, 1000)
+                       greeting.innerHTML = 'bye, Vasya'
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,105 @@
+/* cap */
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        z-index: 999999;
+
+        background-color: peru;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 4em;
+    }
+
+    header>div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        margin: 0.5em;
+    }
+
+    header div:nth-child(1) {
+        background-color: rgba(165, 42, 42, 0.534);
+
+        border: 2px solid rgba(19, 27, 68, 0.74);
+        border-radius: 0.25em;
+    }
+
+    header>div img{
+        height: 3em;
+        padding: 0 0.5em;
+    }
+
+    header>div h3{
+        padding: 0 0.5em;
+    }
+
+    nav li{
+        display: inline;
+        padding: 0 0.25em;
+    }
+
+    nav input{
+        border-radius: 0.25em;
+
+    }
+
+/* main */
+
+    .image__centralContainer{
+        padding-top: 50vh;
+        text-align: center;
+    }
+
+    .parallax__image{
+        height: 100vh;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+
+        background-image: url(https://images.unsplash.com/photo-1513806562344-c75007ad303f?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=lydia-matzal-9LfcAIYcl9o-unsplash.jpg)
+    }
+
+    .payload{
+        min-height: calc(100vh - 4em);
+
+        width: calc(100vw - 0.83em);
+    }
+
+        .fullPayload{
+            margin: 0.5em;
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+            
+            .payloadBlock{
+                margin: 0.25em;
+
+                display: grid;
+                grid-template-columns: 11em 1fr;
+
+                border: 2px solid #9999998c;
+                border-radius: 0.5em;
+            }
+
+                .payloadBlock img{
+                    height: 7em;
+                    width: 10.5em;
+
+                    margin: 0.25em;
+
+                    border-radius: 0.5em;
+                }
+            
+            .payloadBlock__href{
+                padding: 0.25em 0.75em;
+            }

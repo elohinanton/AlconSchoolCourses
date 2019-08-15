@@ -1,0 +1,21 @@
+img{
+    border-radius: 4px;
+}
+
+.row{
+    margin-top: 1em;
+}
+
+.myPhotoContainer {
+    text-align: center;
+}
+
+.myNameContainer{
+    text-align: center;
+}
+
+.page-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 1em;
+}
